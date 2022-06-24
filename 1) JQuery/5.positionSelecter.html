@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $('tr:odd').css('backgroundColor', 'yellow');  //짝수
+            $('tr:even').css('backgroundColor', 'greenyellow');  //홀수
+            $('tr:nth-child(3n+1)').css('backgroundColor', 'orange');
+            $('tr:first').css('backgroundColor', 'orangered');
+        });
+    </script>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>전화번호</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>홍길동1</td>
+            <td>010-1111-1111</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>홍길동2</td>
+            <td>010-1111-1111</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>홍길동3</td>
+            <td>010-1111-1111</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>홍길동4</td>
+            <td>010-1111-1111</td>
+        </tr>
+
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            /* 색깔 줬을 때 약간의 여백 남아있는 것 */
+            height: 15vh;
+            /* 창 화면에 따라서 높이가 변경됨, 반응형 뭐시기 */
+            background-color: cornflowerblue;
+            align-items: center;
+            /* 박스 자체를 가운데정렬 */
+            justify-content: center;
+            /* 알맹이를 가운데정렬, display: flex 에서만 동작 */
+            display: flex;
+        }
+
+        main {
+            width: 100%;
+            height: 70vh;
+            background-color: whitesmoke;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        footer {
+            width: 100%;
+            height: 15vh;
+            background-color: gray;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        header ul {
+            -webkit-padding-start: 0;
+            /* 패팅 자체를 0으로 맞춰줌 */
+            list-style: none;
+            display: flex;
+            width: 100%;
+
+        }
+
+        header li {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login {}
+
+
+        .login li {
+            list-style: none;
+
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // // AJAX 통신
+        function pageload(url) {
+            if (url == "index.html") {
+                location.href = "index.html"
+            }
+            else {
+                $(function () {
+                    $('main').load(url);
+                });
+                // const http = new XMLHttpRequest();
+                // http.onload = function () {
+                //     document.querySelector("main").innerHTML = http.responseText;
+                // }
+                // http.open("get", url);
+                // http.send();
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+
+        <ul>
+
+            <li onclick="pageload('main.html')">홈</li>
+            <li onclick="pageload('login.html')">로그인</li>
+            <li onclick="pageload('member.html')">회원가입</li>
+        </ul>
+
+    </header>
+    <main>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

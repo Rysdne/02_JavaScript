@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <input type="text" id=id onkeyup="idcheck(this)"><label></label>
+</body>
+<script>
+    function idcheck() {
+        var id = document.querySelector("#id");
+        if (id.value.length==0) {
+            document.querySelector("label").innerHTML = "id를 입력해주세요";
+            return;
+        }
+        else if (id.value.length < 6) {
+            document.querySelector("label").innerHTML = "id 길이가 짧습니다";
+            return;
+        } else {
+            document.querySelector("label").innerHTML = "확인";
+        }
+    }
+</script>
+
+</html>

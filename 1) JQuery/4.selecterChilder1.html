@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            //출력 함수로 사용 가능
+            //alert($('input').val());
+            //alert($('input[type="password"').val());
+
+            //입력 함수로도 사용 가능
+            //$('input[type="text"]').val('dwit');
+            //var name = $('select>option:selected').val();
+            //alert(name);
+
+            var name = $('input:button').val();
+            alert(name);
+
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" value="아이디"><br>
+    <input type="password" value="1234"><br>
+    <input type="button" value="실행"><br>
+
+    <select name="" id="">
+        <option value="">사과</option>
+        <option value="">오렌지</option>
+        <option value="바나" selected>바나나</option>
+
+
+
+    </select>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            //var apptext = '<input type="file">'
+            //$('body').append(apptext);            
+            $('button').click(function () {
+                var apptext = '<input type="file">'
+                $('body').append(apptext);
+            });
+            $('#remove').click(function () {
+                $('input:last').remove();
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button>파일추가</button><br>
+    <input type="file">
+    <button id="remove">파일제거</button><br>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<html>
+
+<style>
+    #step {
+        width: 100%;
+        height: 20vh;
+        background-color: gray;
+    }
+
+    #step ul {
+        width: 100%;
+        display: flex;
+    }
+
+    #step ul li {
+        flex: 1;
+        list-style: none;
+    }
+
+    .select {
+        color: white;
+    }
+
+    .select th {
+        font-weight: bold;
+        font-size: 2rem;
+        display: flex;
+    }
+
+    .unselect {
+        color: lightgray;
+    }
+
+    .unselect th {
+        font-weight: bold;
+        font-size: 2rem;
+        display: flex;
+    }
+
+    #step p {
+        font-weight: bold;
+        margin-left: 9%;
+        color: lightgray;
+    }
+</style>
+<script>
+    function acceptall() {
+        var one = document.querySelector("#accept1");
+        var two = document.querySelector("#accept2");
+        if (one.checked == true) {
+            two.checked = true;
+            return;
+        }
+    }
+    function next() {
+        var two = document.querySelector("#accept2");
+        if (two.checked == true) {
+            $('section').load("member.html");
+        }
+        if (two.checked == false) {
+            alert("동의 후에 진행 가능합니다");
+            return;
+        }
+
+    }
+
+    function cancel() {
+        location.href = "main.html";
+    }
+
+</script>
+
+<body>
+    <div style="background-color: white; padding:0 2vh;padding-bottom:2vh;border:4px solid lightgray">
+        <div id="step">
+            <ul>
+                <li>
+                    <table class="select">
+                        <tr>
+                            <td>STEP</td>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <td>이용약관 및<br>개인정보수집 및<br>이용에 관한 동의</td>
+                        </tr>
+                    </table>
+                </li>
+                <li>
+                    <table class="unselect">
+                        <tr>
+                            <td>STEP</td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>본인인증 및<br>기본정보 입력</td>
+                        </tr>
+                    </table>
+                </li>
+                <li>
+                    <table class="unselect">
+                        <tr>
+                            <td>STEP</td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>회원가입 완료</td>
+                        </tr>
+                    </table>
+                </li>
+            </ul>
+            <p>이용약관 및 개인정보수집 이용에 관한 동의
+            </p>
+        </div>
+
+        <div style="border-bottom:1px solid lightgray;margin-top: 1vh;">
+            <input type="checkbox" id="accept1" name="accept1" onclick="acceptall()">
+            <label for="accept1" style="font-weight: bold;"> 모두 동의합니다</label>
+        </div>
+        <div style="margin-top: 1vh;">
+            <textarea name="terms" id="terms" cols="70" rows="8"
+                style="width: 99%; border: 1px solid lightgray; font-weight: bold;">
+제 1장 총 칙
+제 2장 서비스 이용계약
+제 3장 계약당사자의 의무
+제 4장 서비스 이용
+제 5장 계약해지 및 이용제한
+제 6장 손해배상 등
+OOO 초등학교 이용약관
+        </textarea>
+
+
+            <div style="margin-top:1vh;margin-bottom:3vh">
+                <input type="checkbox" id="accept2" name="accept2" onclick="acceptall()">
+                <label for="accept2" style="font-size: 0.8rem;"> 서비스이용약관에 동의합니다</label>
+            </div>
+            <div style="padding-left: 20vh;">
+                <input type="button" id="next" name="next" value="다음"
+                    style="width:20vh; color:white;font-size: 1.8rem;border-radius: 1vh;border: 0; background-color: gray;"
+                    onclick="next()">
+                <input type="button" id="cancel" name="cancel" value="취소"
+                    style="width:20vh; color:white;font-size: 1.8rem;border-radius: 1vh;border: 0; background-color: gray;"
+                    onclick="cancel()">
+            </div>
+        </div>
+</body>
+
+</html>

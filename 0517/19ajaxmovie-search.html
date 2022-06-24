@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+
+        div {
+            border: 1px solid black;
+            width: 600px;
+        }
+
+        tr:hover {
+            background-color: greenyellow;
+        }
+    </style>
+    <script>
+        var ajax = new XMLHttpRequest();
+        ajax.open("get", "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101");
+        ajax.send();
+        //테이블 만들기
+        ajax.onload = function () {
+            var jsondata = JSON.parse(this.responseText);
+            var text = "";
+            text += "<table> <tr><th colspan=3>일별박스오피스</th></tr>"
+            for (i = 0; i < 10; i++) {
+                text += `<tr onclick='search(this.innerText)'><td>${jsondata.boxOfficeResult.dailyBoxOfficeList[i].rank}위</td>`
+                text += `<td>(${jsondata.boxOfficeResult.dailyBoxOfficeList[i].rankInten}): </td>`
+                text += `<td>${jsondata.boxOfficeResult.dailyBoxOfficeList[i].movieNm}</td></tr>`
+            }
+            text += "</table>";
+            document.querySelector("div").innerHTML = text;
+            document.getElementById
+        }
+
+        function search(text) {
+            //검색값을 추출
+
+            var arr = text.split("	")
+            //document.write(arr[0]);
+            var search = arr[0].substring(0, arr[0].indexOf("위"));
+            //document.write(`${search}위<br>`);
+
+
+            //검색할 데이터 목록을 가지고 와서 검색을 하는 작업
+            var data = new XMLHttpRequest();
+            data.open("get", "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101");
+            data.send();
+
+            data.onload = function () {
+                jsondata = JSON.parse(data.responseText);
+                //document.write(jsondata.boxOfficeResult.dailyBoxOfficeList[1].rank);
+                var obj = jsondata.boxOfficeResult;
+                for (i = 0; i < obj.dailyBoxOfficeList.length; i++) {
+                    if (search == obj.dailyBoxOfficeList[i].rank) {
+                        //alert("찾기성공");
+                        text = "";
+                        text += "영화제목 : " + obj.dailyBoxOfficeList[i].movieNm + "<br>";
+                        text += "영화조회수 : " + obj.dailyBoxOfficeList[i].showCnt + "<br>";
+                        text += "영화오픈일 : " + obj.dailyBoxOfficeList[i].openDt + "<br>";
+
+
+                        document.querySelector("#content").innerHTML = text;
+                        /*
+                        document.write("영화제목:" + obj.dailyBoxOfficeList[i].movieNm + "<br>");
+                        document.write("영화조회수:" + obj.dailyBoxOfficeList[i].showCnt + "<br>");
+                        document.write("영화오픈일:" + obj.dailyBoxOfficeList[i].openDt + "<br>");
+                        */
+
+
+                        break;
+                    }
+                }
+
+            }
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <div></div>
+    <div id="content"></div>
+</body>
+
+</html>

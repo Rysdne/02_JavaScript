@@ -1,0 +1,30 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function termcheck(url) {
+        var check = document.querySelector("#termcheck");
+        // alert(check.checked);
+        if (check.checked) {
+            $('section').load(url);
+        } else{
+            alert("약관에 동의해야 진행 가능합니다");
+            return;
+        }
+    }
+    function leavepage(url) {
+        location.href = url;
+    }
+</script>
+
+<body>
+    <div style="background-color: white;">
+        약관 : 개인정보 공유에 동의하십니까<br>
+        <input type="checkbox" name="termcheck" id="termcheck">
+        동의합니다
+        <br>
+        <input type="button" value="다음" name="next" id="next" onclick="termcheck('0.member.html')">
+        <input type="button" value="취소" name="leave" id="leave" onclick="leavepage('0.index.html')">
+    </div>
+</body>
+
+</html>

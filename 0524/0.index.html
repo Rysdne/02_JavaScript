@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            height: 15vh;
+            background-color: slateblue;
+
+            position: relative;
+            display: flex;
+        }
+
+        #h_nav {
+            width: 80%;
+            height: 10vh;
+            background-color: aqua;
+            position: absolute;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            right: 0;
+            bottom: 0;
+        }
+
+        #h_nav ul {
+            width: 100%;
+            height: 10vh;
+            background-color: beige;
+            display: flex;
+        }
+
+        #h_nav ul li {
+            list-style: none;
+            align-items: center;
+            justify-content: center;
+            ;
+            text-align: center;
+            display: flex;
+
+
+            flex: 1;
+        }
+
+        aside {
+            width: 20%;
+            height: 70vh;
+            background-color: aquamarine;
+            text-align: center;
+            float: left;
+        }
+
+        section {
+            width: 80%;
+            height: 70vh;
+            background-color: aliceblue;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        footer {
+            width: 100%;
+            height: 15vh;
+            background-color: gray;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function pageload(choose) {
+            if (choose == "index") {
+                location.href = "0." + choose + ".html";
+            } else {
+                $('section').load("0." + choose + ".html");
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <header>header
+        <nav id="h_nav">
+            <ul>
+                <li onclick="pageload('index')">홈</li>
+                <li onclick="pageload('login')">로그인</li>
+                <li onclick="pageload('term')">회원가입</li>
+            </ul>
+        </nav>
+
+    </header>
+    <aside>aside</aside>
+    <section>section</section>
+    <footer>footer</footer>
+</body>
+
+</html>

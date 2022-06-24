@@ -1,0 +1,28 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function termcheck() {
+        var check = document.querySelector("#termcheck");
+        if (check.checked) {
+            $('section').load("member.html");
+        } else {
+            alert("약관에 동의하셔야 진행이 가능합니다");
+            return;
+        }
+    }
+    function leavepage() {
+        location.href = "index.html"
+    }
+</script>
+
+<body>
+    <div style="background-color:white; border:2px solid lightgray">
+        약관 : 동의하시겠습니까<br>
+        <input type="checkbox" id="termcheck" name="termcheck">
+        동의합니다<br>
+        <input type="button" value="다음" onclick="termcheck()">
+        <input type="button" value="취소" onclick="leavepage()">
+    </div>
+</body>
+
+</html>

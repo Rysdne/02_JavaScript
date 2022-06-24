@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- [] -> 배열 
+         {} -> 객체
+        
+        배열을 선언하면 반복문을 사용하기 편하다.-->
+  </head>
+  <body>
+      <div id="demo">
+
+        <img src="img/css.png" alt="">
+        <img src="img/html.png" alt="">
+        <img src="img/jpg.png" alt="">
+        <img src="img/js.png" alt="">
+
+      </div>
+   
+    <script>
+      // let car1= "Saab";
+      // let car2= "Volvo";
+      // let car3= "BMW";
+      // document.write(car1+""+car2+""+car3+""+"<br>");
+
+      // //배열은 몇개가 와도 가능하다 why? 데이터만 들어오면 되기때문에.
+      // // 배열을 이용해서 실행하는것에 익숙해져야한다.
+      // //+= --> 기존에 있던것에 쌓는것
+      // //즉 i=i+1 == i+=1 과 같다.
+      // //text=text+" " == text+=" "
+      // const cars = ["Saab", "Volvo", "BMW","Saab", "Volvo", "BMW"];
+      // for (var i = 0; i < cars.length; i++) {
+      //     document.write(cars[i]+"");
+
+      // }
+
+      // document.getElementById("demo").innerHTML = cars;
+     
+      const img = ["css.png", "html.png", "jpg.png", "js.png"];
+      let imgarr = img.length;
+
+      let jsimgarr = "<ul>";
+        for (let i = 0; i < imgarr; i++) {
+            jsimgarr += "<li>" + imgarr[i] + "</li>";
+            jsimgArr[i] = new Image();
+            jsimgArr[i].src = img[i];
+            
+        }
+        jsimgarr+="</ul>";
+
+        document.getElementById("demo").innerHTML = jsimgarr;
+
+    </script>
+  </body>
+</html>

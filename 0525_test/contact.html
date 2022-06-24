@@ -1,0 +1,60 @@
+<html>
+<script>
+    function send() {
+        var name = document.querySelector("#name");
+        var email = document.querySelector("#email");
+        var message = document.querySelector("#message");
+        if (name.value == "" || email.value == "" || message.value == "") {
+            alert("모든 내용을 기입해주세요");
+            return;
+        }
+        if (/^[a-z0-9]+@+[a-z0-9]+\.+[a-z0-9]/.test(email.value) == false) {
+            alert("이메일 형식을 다시 확인하세요");
+            email.focus();
+            return;
+        } else {
+            alert("메시지가 전송되었습니다");
+            name.value="";
+            email.value="";
+            message.value="";
+            return;
+        }
+    }
+</script>
+
+<body>
+    <div style="background-color: white; border:4px solid lightgray;height: 31vh;">
+        <table style="position:relative;">
+            <caption style="font-size: 1.6rem; margin-bottom: 10vh;">CONTACT</caption>
+            <tr>
+                <td rowspan="2" style="width: 50vh; font-weight: bold;"><img src="images/icon1.PNG"
+                        alt="GPS">&nbspChicago,US<br>
+                    <img src="images/icon2.PNG" alt="TEL">&nbspPhone: +00 151515<br>
+                    <img src="images/icon3.PNG" alt="EMAIL">&nbspEmail:mail@mail.com
+                </td>
+                <td>
+                    <input type="text" id="name" name="name" placeholder="Name" style="width: 20vh; height: 4vh;">
+                </td>
+                <td colspan="2">
+                    &nbsp<input type="text" id="email" name="email" placeholder="Email"
+                        style="width: 20vh; height: 4vh;">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="text" id="message" name="message" placeholder="Message"
+                        style="width: 42vh; height: 4vh;"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input type="button" value="SEND"
+                        style="position:absolute; right:0.5vh;width:8vh; height: 4vh; background-color: black; color: white; font-size:0.7rem;"
+                        onclick="send()">
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        $(function () {
+            $('#fi').click(function () {
+                //$('div').fadeIn();
+                //$('div').fadeIn("slow");
+                $('div').fadeIn(300);
+
+            });
+            $('#fo').click(function () {
+                //$('div').fadeOut();
+                //$('div').fadeOut("slow");
+                $('div').fadeOut(300);
+
+            });
+            $('#ft').click(function () {
+                //$('div').fadeToggle();
+                //$('div').fadeToggle("slow");
+                $('div').fadeToggle(300);
+
+            });
+            $('#fadeTo').click(function(){
+                $('div').fadeTo("slow",0.15);
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <button id="fi">fadeIn</button><br>
+    <button id="fo">fadeOut</button><br>
+    <button id="ft">fadeToggle</button><br>
+    <button id="fadeTo">fadeTo</button><br>
+    <div style="width: 80px;height: 80px;background-color: red;display: none;"></div>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    var pwc=false; //비밀번호 확인 여부를 확인하는 변수
+
+    function pwconfirm(){
+        var pw=document.querySelector("#pw");
+        var repw=document.querySelector("#repw");
+        if(pw.value==repw.value){
+            alert("비밀번호 확인 되었습니다.");
+            pwc=true;
+        }else{
+            alert("비밀번호가 일치하지 않습니다.")
+            pwc=false;
+        }
+    }
+
+    function createmember(){
+        var id=document.querySelector("#id");
+        var pw=document.querySelector("#pw");
+        var repw=document.querySelector("#repw");
+        var email=document.querySelector("#email");
+        var tel=document.querySelector("#tel");
+        if(id.value==""||pw.value==""||repw.value==""
+        ||email.value==""||tel.value==""){
+            alert("입력값을 확인하세요.");
+            return;
+        }
+        if(pwc==false){
+            alert("비밀번호 확인을 하셔야 합니다.");
+            return;
+        }
+        if(!/\S*@\S*\.\S*/.test(email.value)){
+            alert("메일주소를 확인하세요.")
+            email.focus();
+            return;
+        }
+
+        // /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/
+        if(!/\d{3}-\d{4}-\d{4}/.test(tel.value)){
+            alert("전화번호를 확인하세요.(예 010-1111-1111)")
+            tel.focus();
+            return;
+        }
+            alert("회원가입이 되셨습니다.");
+            document.forms[0].submit();
+        
+    }
+
+</script>
+<body>
+    <h3>회원가입</h3>
+    <form action="index_v1.4.html">
+        아이디:<input type="text" name="id" id="id"><br>
+        비밀번호: <input type="password" name="pw" id="pw"><br>
+        비밀번호확인: <input type="password" name="repw" id="repw">
+        <input type="button" value="비밀번호확인" onclick="pwconfirm()">
+        <br>
+        이메일: <input type="email" name="email" id="email"><br>
+        전화번호: <input type="tel" name="tel" id="tel"><br>
+
+        <input type="button" value="회원가입" onclick="createmember()">
+
+    </form>
+</body>
+</html>

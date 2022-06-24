@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        //document.querySelector('#check').checked=true;
+
+        function confirm(url){
+            var check=document.querySelector('#check');
+            //alert(check.checked);
+           
+            if(check.checked){
+                //다음페이지로 이동
+                $(function(){
+                    $('main').load(url);
+                });
+            }else{
+                //체크가 안되어 있어 있을 경우 현재페이지로 이동
+                alert('동의여부를 확인하세요!!');
+            }   
+        }
+    </script>
+</head>
+<body>
+    
+        약관:당신의 정보를 수집하도록 하겠습니다.<br>
+        <input id="check" type="checkbox">동의여부<br>
+        <input type="button" value="다음" 
+        onclick="confirm('newmember1.html')">
+    
+    <script>
+        //document.querySelector('#check').checked=true;
+    </script>
+</body>
+</html>

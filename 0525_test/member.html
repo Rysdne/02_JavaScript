@@ -1,0 +1,102 @@
+<html>
+
+<script>
+    var pwc = false;
+    function confirm() {
+        var callname = document.querySelector("#callname");
+        var id = document.querySelector("#id");
+        var pw = document.querySelector("#pw");
+        var repw = document.querySelector("#repw");
+        var email = document.querySelector("#email");
+        if (callname.value == "" || id.value == "" || pw.value == "" || repw.value == "" || email.value == "") {
+            alert("모든 내용을 기입해주세요");
+            return;
+        }
+        if (pwc == false) {
+            alert("비밀번호 확인 버튼을 눌러주세요");
+            pwc = false;
+            return;
+        }
+        if (pw.value != repw.value) {
+            alert("비밀번호가 다릅니다");
+            pwc = false;
+            repw.value="";
+            repw.focus();
+            return;
+        }
+        if (/^[a-z0-9]+@+[a-z0-9]+\.+[a-z0-9]/.test(email.value) == false) {
+            alert("이메일 형식을 다시 확인하세요");
+            email.focus();
+            return;
+        } else {
+            alert("회원가입이 완료되었습니다");
+            location.href = "main.html";
+        }
+
+    }
+    // ======================================================
+
+    function pwconfirm() {
+        var pw = document.querySelector("#pw");
+        var repw = document.querySelector("#repw");
+        if (pw.value == "" || repw.value == "") {
+            alert("비밀번호를 기입해주세요");
+            pwc = false;
+            return;
+        }
+        if (pw.value != repw.value) {
+            alert("비밀번호가 다릅니다");
+            pwc = false;
+            repw.value="";
+            repw.focus();
+            return;
+        }
+        else {
+            alert("확인되었습니다");
+            pwc = true;
+            email.focus();
+            return;
+        }
+    }
+    function cancel() {
+        location.href = "main.html";
+    }
+</script>
+
+<body>
+    <form action="" style="padding:2vh; border:4px solid lightgray; background-color: white;">
+        <div style="font-weight: bold; color:gray;padding-bottom: 1vh;border-bottom: 4px solid darkgray;">회원가입 양식</div>
+        <table>
+            <tr>
+                <th style="text-align: right;">이름</th>
+                <td><input type="text" id="callname" name="callname"></td>
+            </tr>
+            <tr>
+                <th style="text-align: right;">아이디</th>
+                <td><input type="text" id="id" name="id"></td>
+            </tr>
+            <tr>
+                <th style="text-align: right;">비밀번호</th>
+                <td><input type="password" id="pw" name="pw"></td>
+            </tr>
+            <tr>
+                <th style="text-align: right;">비밀번호 확인</th>
+                <td><input type="password" id="repw" name="repw">
+                </td>
+                <td><input type="button" value="비밀번호 확인" style="border: 2px solid black; background-color: white;color:gray; font-weight: bold;"    onclick="pwconfirm()""></td>
+            </tr>
+            <tr>
+                <th style=" text-align: right;">이메일</th>
+                <td><input type=" text" id="email" name="email"></td>
+            </tr>
+
+
+        </table>
+        <div style="padding-left: 15vh;">
+        <input type="button" value="가입취소" style="width: 15vh;height:4vh;font-weight: bold; font-size: 0.7rem; color: dimgray; background-color: white;border: 2px solid gray;" onclick="cancel()">
+        <input type="button" value="회원가입" style="width: 15vh;height:4vh;font-weight: bold; font-size: 0.7rem; color: white; background-color: gray;border:0;" onclick="confirm()">
+    </div>
+    </form>
+</body>
+
+</html>

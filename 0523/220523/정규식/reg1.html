@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var tel="010-1111-11111111";
+        var t=tel.match("010-1111-1111"); //match일치할 경우 문자열 출력
+        //var t=tel.test("010-1111-1111"); 
+        //test 일치할 경우 true, 그렇지 않을 경우 false경우
+        //test앞의 객체가 문자열이 안되고, 정규식이여야 test는 사용이 가능함
+
+        //var t=tel.test(/\d{3}-\d{4}-\d{4}/);
+        //위의 문장이 오류인 이유:test앞에는 정규식이여야하는데 문자열이여서 오류
+         
+        var reg=/\d{3}-\d{4}-\d{4}/; /* /정규식/ */
+        var t=reg.test(tel); //test앞에는 정규식이기 때문에 사용 가능
+        //var t=reg.match(tel); //match앞에는 문자열이 와야함으로 오류
+        //alert(t);
+
+        
+        if(/\d{3}-\d{4}-\d{4}/.test(tel)){
+            alert("정상적인 전화번호입니다.")
+        }else{
+            alert("비정상적인 전화번호입니다.")
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

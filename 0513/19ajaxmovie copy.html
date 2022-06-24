@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+
+        div {
+            border: 1px solid black;
+            width: 600px;
+        }
+    </style>
+    <script>
+        var ajax = new XMLHttpRequest();
+        ajax.open("get", "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101");
+        ajax.send();
+
+        ajax.onload = function () {       //결과가 들어있는 곳
+            /*
+            var jsondata=JSON.parse(this.responseText);
+            //document.querySelector("div").innerHTML=jsondata.boxOfficeResult.boxofficeType;
+            var text="";
+            for(i=0;i<10;i++){
+                text+="jsondata.boxOfficeResult.dailyBoxOfficeList[i].movieNm";
+            }
+            document.querySelector("div").innerHTML=jsondata.boxOfficeResult.dailyBoxOfficeList[i].movieNm;
+            */
+            var jsondata = JSON.parse(this.responseText);
+            //document.querySelector("div").innerHTML=jsondata[0].id;                //배열로 시작했기 때문에 배열로 접근
+            var text = "";
+            text += "<table> <tr><th colspan=3>일별박스오피스</th></tr>"
+            for (i = 0; i < 10; i++) {
+                text += `<tr onclick='alert(this.innerText)'><td>${jsondata.boxOfficeResult.dailyBoxOfficeList[i].rank}위</td>`
+                text += `<td>(${jsondata.boxOfficeResult.dailyBoxOfficeList[i].rankInten}): </td>`
+                text += `<td>${jsondata.boxOfficeResult.dailyBoxOfficeList[i].movieNm}</td></tr>`
+            }
+            text += "</table>";
+            document.querySelector("div").innerHTML = text;
+            document.getElementById
+        }
+
+        function search(text) {
+            //검색할 데이터 목록을 가지고 와서 검색을 하는 작업
+            var arr = text.split("	")
+            //document.write(arr[0]);
+            var search = arr[0].substring(0, arr[0].indexOf("위"));
+            document.write(search);
+        }
+            var data = new XMLHttpRequest();
+            data.open("get", "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101");
+            data.send();
+
+            data.onload = function () {
+                jsondata = JSON.parse(data.responseText);
+                //document.write(jsondata.boxOfficeResult.dailyBoxOfficeList[1].rank);
+            }
+        
+
+
+    </script>
+</head>
+
+<body>
+    <div></div>
+    <ul>
+        <li id="mona">영화제목 : </li>
+        <li id="enna">영어제목 : </li>
+        <li id="moti">상영시간 : </li>
+        <li id="moed">감독 : </li>
+        <li id="moac">출연배우 : </li>
+    </ul>
+</body>
+
+</html>

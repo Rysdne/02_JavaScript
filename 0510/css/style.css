@@ -1,0 +1,180 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+#wrap{
+    width: 1300px;
+    height: 850px;
+    background-color: skyblue;
+    margin: 0 auto;
+    padding: 50px;
+    font-size:2rem;
+    font-weight: bold;
+}
+
+
+
+.header{
+    width: 100%;
+    height: 200px;
+background-color: antiquewhite;
+    margin-bottom: 25px;
+}
+
+.h_left{
+    width: 400px;
+    height: 200px;
+    
+    float: left;
+    position: relative;
+    
+}
+
+.h_l_box{
+    margin-top: 10px;
+    width: 200px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+right: 0;
+color: white;
+text-align: center;
+line-height: 100px;
+
+}
+
+.h_l_bot{
+    margin: 0 10px;
+    width: 380px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+
+}
+
+
+
+
+.h_right{
+    width: 875px;
+    height: 200px;
+
+    float: left;
+margin-left: 25px;
+
+}
+.h_r_nav{
+    margin-top: 10px;
+    width: 750px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    background-color: black;
+    color: white;
+
+}
+
+
+
+
+
+.contents{
+    width: 100%;
+    height: 400px;
+    margin-bottom: 25px;
+
+}
+
+
+.c_aside {
+    width: 500px;
+    height: 400px;
+    float: left;
+    background-color: gold;
+
+}
+
+.c_a_left{
+width: 200px;
+height: 400px;
+line-height: 400px;
+text-align: center;
+float: left;
+
+}
+
+.c_a_right{
+    width: 300px;
+    height: 400px;
+    float: left;
+}
+.c_a_r_list{
+    padding:20px 0;
+width: 300px;
+height: 360px;
+
+}
+
+.c_a_r_list li{
+    width: 280px;
+    height: 115px;
+    
+margin-top:10px;
+background-color: aquamarine;
+border-top-right-radius: 30px;
+border: 4px solid blue;
+box-sizing: border-box;
+}
+
+.c_a_r_list li:first-child{
+    margin-top:0;
+}
+
+
+
+
+
+.c_main {
+    width: 750px;
+    height: 385px;
+    background-color:crimson;
+    float:left;
+    margin-left:25px;
+    padding: 0 10px;
+    padding-top: 5px;
+padding-bottom: 10px;
+
+}
+
+.c_m_section{
+    width: 700px;
+    height: 325px;
+    line-height: 325px;
+    
+margin:10px 25px;
+background-color: aquamarine;
+border-top-right-radius: 30px;
+border: 4px solid blue;
+box-sizing: border-box;
+
+
+}
+
+
+
+
+
+.footer {
+
+    width: 100%;
+    height: 200px;
+ background-color: violet;
+    line-height: 200px;
+
+
+
+}

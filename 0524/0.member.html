@@ -1,0 +1,123 @@
+<html>
+<script>
+    var pwc = false;    // 재입력 확인 결과 저장 변수
+    var idc = false;      // 아이디 길이 확인 변수
+    function recheck() {
+        var pw = document.querySelector("#pw");
+        var repw = document.querySelector("#repw");
+        if (pw.value == "") {
+            alert("비밀번호를 입력해주세요");
+            pw.value = "";
+            repw.value = "";
+            pw.focus();
+            return;
+        } else if (pw.value == repw.value) {
+            alert("확인되었습니다");
+            email.focus();
+            pwc = true;
+            return;
+        } else {
+            alert("입력한 비밀번호가 다릅니다");
+            repw.value = "";
+            repw.focus();
+            pwc = false;
+            return;
+        }
+    }
+    function createmember() {
+        var id = document.querySelector("#id");
+        var pw = document.querySelector("#pw");
+        var repw = document.querySelector("#repw");
+        var tel = document.querySelector("#tel");
+        var email = document.querySelector("#email");
+        // =====================================================
+        // 1. 입력값 확인
+        if (id.value == "" || pw.value == "" || tel.value == "" || email.value == "") {
+            alert("모든 내용에 기입해주세요");
+            return;
+        }
+        // =====================================================
+        // 2. 아이디 길이 확인
+
+        if (id.value.length < 3 || id.value.length > 12) {
+            alert("아이디 길이를 확인해주세요");
+            id.focus();
+            return;
+        }
+        // =====================================================
+        // 3. 비밀번호 확인
+        if (pw.value.length < 6 || pw.value.length > 16) {
+            alert("패스워드 길이를 확인해주세요");
+            pw.focus();
+            return;
+        }
+        if (pwc == false) {
+            alert("패스워드 확인 버튼을 눌러주세요");
+            return;
+        } else if (pw.value != repw.value) {
+            alert("입력한 패스워드가 다릅니다");
+            repw.value = "";
+            repw.focus();
+            pwc = false;
+            return;
+        } else {
+            pwc = true;
+        }
+        // =====================================================
+        // 4. 전화번호 형식 확인
+        if (!/\d{3}-\d{4}-\d{4}/.test(tel.value)) {
+            alert("전화번호 형식을 확인하세요.");
+            tel.focus();
+            return;
+        }
+        // =====================================================
+        // 5. 이메일 형식 확인
+        if (!/\S*@\S*\.\S*/.test(email.value)) {
+            alert("메일 주소를 확인하세요.");
+            email.focus();
+            return;
+        }
+        // =====================================================
+        // 6. 회원정보 등록
+        else {
+            alert("ID : " + id.value + ", PW : " + pw.value + ", Email : " + email.value);
+            document.forms[0].submit();
+            location.href="0.membersuccess.html"
+        }
+    }
+</script>
+
+<body>
+    <form action="">
+        <table id="table" style="border:2px solid lightgray; background-color: white;">
+            <caption style="font-weight:bold">회원가입</caption>
+            <tr>
+                <th><label for="id">아이디 : </label></th>
+                <td><input type="text" name="id" id="id" placeholder="ID"></td>
+            </tr>
+            <tr>
+                <th><label for="pw"> 패스워드 : </label></th>
+                <td><input type="password" name="pw" id="pw" placeholder="PW"></td>
+            </tr>
+            <tr>
+                <th><label for="repw"> 재입력 : </label></th>
+                <td><input type="password" name="repw" id="repw" placeholder="PW 재입력"></td>
+                <td><input type="button" value="확인" onclick="recheck()"></td>
+            </tr>
+            <tr>
+                <th><label for="tel"> 전화번호 : </label></th>
+                <td><input type="text" name="tel" id="tel" placeholder="010-1234-5678"></td>
+            </tr>
+            <tr>
+                <th><label for="email"> 메일 주소 : </label></th>
+                <td><input type="text" name="email" id="email" placeholder="rysdne@gmail.com"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td> <input type="button" value="회원가입" onclick="createmember()"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function login() {
+            var id = document.querySelector("#id");
+            var pw = document.querySelector("#pw");
+            var cb = document.querySelector("#idre");
+
+            // alert(id.value + ", " + pw.value + ", " + cb.checked);
+            
+            if (id.value < 3 || id.value > 11) {
+                alert("아이디 길이를 확인해주세요");
+                return;
+            }
+            if (pw.value < 6 || pw.value > 16) {
+                alert("패스워드 길이를 확인해주세요");
+                return;
+            }
+
+        };
+
+
+    </script>
+</head>
+
+<body>
+    <form action="">
+        <input type="text" name="id" id="id">
+        <input type="password" name="pw" id="pw">
+        <input type="checkbox" name="idre" id="idre">
+        <input type="button" value="로그인" name="login" id="login" onclick="login()">
+    </form>
+
+
+</body>
+
+</html>

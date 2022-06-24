@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100%;
+            height: 15vh;
+            background-color: slateblue;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        #h_logo {
+            width: 20%;
+            height: 10vh;
+            background-color: violet;
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #h_membership {
+            width: 30%;
+            height: 10vh;
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        #h_membership ul {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        #h_membership ul li {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        nav {
+            width: 80%;
+            height: 5vh;
+            background-color: white;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav ul {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        nav ul li {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        aside {
+            width: 20%;
+            height: 70vh;
+            background-color: lightgray;
+            display: flex;
+            float: left;
+        }
+
+        section {
+            width: 80%;
+            height: 70vh;
+            background-color: whitesmoke;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer {
+            width: 100%;
+            height: 15vh;
+            background-color: dimgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer ul li {
+            text-align: center;
+        }
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        function pageload(url) {
+            $('aside').load(url + "aside.html");
+            $('section').load(url + ".html");
+        }
+        function headermenu(url) {
+            $('section').load(url + ".html");
+        }
+
+    </script>
+</head>
+
+<body>
+    <header>header
+        <div id="h_logo">로고</div>
+        <div id="h_membership">
+            <ul style="list-style:none">
+                <li onclick="headermenu('login')">로그인</li>
+                <li onclick="headermenu('term')">회원가입</li>
+            </ul>
+        </div>
+        <nav>
+            <ul style="list-style:none">
+                <li onclick="pageload('home')">HOME</li>
+                <li onclick="pageload('company')">COMPANY</li>
+                <li onclick="pageload('contact')">CONTACT</li>
+                <li onclick="pageload('board')">게시판</li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <aside>aside</aside>
+    <section>section</section>
+    <footer>
+        <ul style="list-style:none; color:lightgray">
+            <li>Copyright(c) 1993 대우직업능력개발원. All Rights reserved</li>
+            <li>서울시 중랑구 봉화산로 56 2F~3F</li>
+            <li>Email : nemo3882@gmail.com</li>
+            <li>Tel : 02-434-0222~3</li>
+        </ul>
+    </footer>
+</body>
+
+</html>
